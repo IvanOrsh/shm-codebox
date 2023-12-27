@@ -8,7 +8,7 @@ export default function Home() {
         <span className="font-light">codebox</span>
       </h1>
 
-      <Code placeholder="Paste some code here..." />
+      <Code placeholder="Add some code here..." />
     </main>
   );
 }
