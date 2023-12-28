@@ -143,7 +143,7 @@ export function convertToHSL(colors: string[]): string[] {
 export function generateColors(color1: string, color2: string): string[] {
   const [r1, g1, b1] = hexToRGB(color1);
   const [r2, g2, b2] = hexToRGB(color2);
-  const [rRef, gRef, bRef] = cssColorToRGB("rgba(0, 0, 0, 0.7");
+  const [rRef, gRef, bRef] = cssColorToRGB("rgba(0, 0, 0, 0.7)");
 
   const avgR = Math.floor((r1 + r2) / 2);
   const avgG = Math.floor((g1 + g2) / 2);
