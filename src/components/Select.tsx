@@ -1,9 +1,8 @@
 import { Fragment } from "react";
-import type { LanguageName } from "@uiw/codemirror-extensions-langs";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
-import { ThemeDefinition } from "@/lib/types";
+import { LanguageDefinition, ThemeDefinition } from "@/lib/types";
 import clsx from "clsx";
 
 function ThemeBubble({ color }: { color: string }) {
@@ -21,7 +20,7 @@ type SelectProps<T> = {
   options: T[];
 };
 
-export default function Select<T extends ThemeDefinition | LanguageName>(
+export default function Select<T extends ThemeDefinition | LanguageDefinition>(
   props: SelectProps<T>
 ) {
   const { type, initialValue, setValue, options } = props;
@@ -38,7 +37,7 @@ export default function Select<T extends ThemeDefinition | LanguageName>(
           )}
         >
           {type === "language" ? (
-            <span>{initialValue as LanguageName}</span>
+            <span>{(initialValue as LanguageDefinition).label}</span>
           ) : (
             <ThemeBubble color={(initialValue as ThemeDefinition).class} />
           )}
@@ -75,7 +74,7 @@ export default function Select<T extends ThemeDefinition | LanguageName>(
                 >
                   {type === "language" ? (
                     <span className="block truncate pr-9">
-                      {option as LanguageName}
+                      {(option as LanguageDefinition).label}
                     </span>
                   ) : (
                     <>
