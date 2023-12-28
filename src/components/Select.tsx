@@ -3,7 +3,7 @@ import type { LanguageName } from "@uiw/codemirror-extensions-langs";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
-import { GradientBackground } from "@/lib/types";
+import { ThemeDefinition } from "@/lib/types";
 import clsx from "clsx";
 
 function ThemeBubble({ color }: { color: string }) {
@@ -21,7 +21,7 @@ type SelectProps<T> = {
   options: T[];
 };
 
-export default function Select<T extends GradientBackground | LanguageName>(
+export default function Select<T extends ThemeDefinition | LanguageName>(
   props: SelectProps<T>
 ) {
   const { type, initialValue, setValue, options } = props;
@@ -40,7 +40,7 @@ export default function Select<T extends GradientBackground | LanguageName>(
           {type === "language" ? (
             <span>{initialValue as LanguageName}</span>
           ) : (
-            <ThemeBubble color={(initialValue as GradientBackground).class} />
+            <ThemeBubble color={(initialValue as ThemeDefinition).class} />
           )}
 
           <span className="pointer-events-none">
@@ -79,11 +79,9 @@ export default function Select<T extends GradientBackground | LanguageName>(
                     </span>
                   ) : (
                     <>
-                      <ThemeBubble
-                        color={(option as GradientBackground).class}
-                      />
+                      <ThemeBubble color={(option as ThemeDefinition).class} />
                       <span className="block truncate">
-                        {(option as GradientBackground).name}
+                        {(option as ThemeDefinition).label}
                       </span>
                     </>
                   )}
