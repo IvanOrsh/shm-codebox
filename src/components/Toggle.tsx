@@ -1,12 +1,13 @@
-import { Switch } from "@headlessui/react";
+import { memo } from "react";
 import { clsx } from "clsx";
+import { Switch } from "@headlessui/react";
 
 type ToggleProps = {
   initialValue: boolean;
   setValue: (_: boolean) => void;
 };
 
-export default function Toggle(props: ToggleProps) {
+export default memo(function Toggle(props: ToggleProps) {
   const { initialValue, setValue } = props;
 
   return (
@@ -32,4 +33,4 @@ export default function Toggle(props: ToggleProps) {
       </Switch>
     </div>
   );
-}
+});

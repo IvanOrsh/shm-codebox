@@ -2,6 +2,7 @@ import { RadioGroup } from "@headlessui/react";
 
 import { ChoiceDefinition } from "@/lib/types";
 import clsx from "clsx";
+import { memo } from "react";
 
 type ChoicesProps = {
   choices: ChoiceDefinition[];
@@ -9,7 +10,7 @@ type ChoicesProps = {
   setValue: (_: ChoiceDefinition) => void;
 };
 
-export default function Choices(props: ChoicesProps) {
+export default memo(function Choices(props: ChoicesProps) {
   const { choices, initialValue, setValue } = props;
 
   return (
@@ -34,4 +35,4 @@ export default function Choices(props: ChoicesProps) {
       </div>
     </RadioGroup>
   );
-}
+});
