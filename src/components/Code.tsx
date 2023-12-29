@@ -51,10 +51,10 @@ export default function Code(props: CodeProps) {
       display: "flex",
       justifyContent: "flex-end",
       lineHeight: "1.5rem",
+      paddingRight: "1rem !important",
       letterSpacing: "0.1px",
     },
     "&.cm-content": {
-      padding: "1rem",
       lineHeight: "1.5rem",
       letterSpacing: "0.1px",
     },
