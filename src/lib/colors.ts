@@ -184,3 +184,21 @@ export function generateColors(color1: string, color2: string): string[] {
 
   return convertToHSL([color1, color2, color3, color4, color5, color6, color7]);
 }
+
+export function hslToHsla(color: string, a: number): string {
+  const values = color.match(
+    /^hsla?\((\d+),\s*(\d+)%?,\s*(\d+)%?(?:,\s*(\d+(?:\.\d+)?)?)?\)$/
+  );
+
+  if (!values) {
+    throw new Error(`Invalid HSL color: ${color}`);
+  }
+
+  const h = parseInt(values[1], 10);
+  const s = parseInt(values[2], 10);
+  const l = parseInt(values[3], 10);
+
+  a = Math.max(0, Math.min(1, a));
+
+  return `hsla(${h}, ${s}%, ${l}%, ${a})`;
+}
