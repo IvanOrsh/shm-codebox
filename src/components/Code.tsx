@@ -19,7 +19,8 @@ type CodeProps = {
 export default function Code(props: CodeProps) {
   const { placeholder, initialValue } = props;
 
-  const { language, theme, lineNumbers, padding } = useSettingsContext();
+  const { language, theme, lineNumbers, padding, fontStyle } =
+    useSettingsContext();
 
   const [selectedLanguage, setSelectedLanguage] = useState<any>(null); // TODO: fix any
   const [code, setCode] = useState(`interface Props {
@@ -57,6 +58,17 @@ export default function Code(props: CodeProps) {
     "&.cm-content": {
       lineHeight: "1.5rem",
       letterSpacing: "0.1px",
+    },
+  });
+
+  const customFontStyle = EditorView.theme({
+    ".cm-content *": {
+      fontFamily: fontStyle.value,
+      fontVariantLigatures: "normal",
+    },
+    ".cm-gutters": {
+      fontFamily: fontStyle.value,
+      fontVariantLigatures: "normal",
     },
   });
 
@@ -236,6 +248,7 @@ export default function Code(props: CodeProps) {
               extensions={[
                 selectedLanguage,
                 styleTheme,
+                customFontStyle,
                 EditorView.lineWrapping,
               ]}
               basicSetup={{

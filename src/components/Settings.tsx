@@ -8,6 +8,7 @@ import { useSettingsContext } from "@/contexts/SettingsContext";
 import { DragHandleDots1Icon } from "@radix-ui/react-icons";
 import { SUPPORTED_LANGUAGES } from "@/lib/languages";
 import { SUPPORTED_PADDING_CHOICES, SUPPORTED_THEMES } from "@/lib/themes";
+import { SUPPORTED_FONT_STYLES } from "@/lib/fonts";
 import Select from "./Select";
 import Toggle from "./Toggle";
 import Choices from "./Choices";
@@ -22,6 +23,8 @@ export default function Settings() {
     setLineNumbers,
     padding,
     setPadding,
+    fontStyle,
+    setFontStyle,
   } = useSettingsContext();
 
   const [mainDimensions, setMainDimensions] = useState<{
@@ -146,6 +149,16 @@ export default function Settings() {
             initialValue={theme}
             setValue={setTheme}
             options={SUPPORTED_THEMES}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="font">Font</label>
+          <Select
+            type="font"
+            initialValue={fontStyle}
+            setValue={setFontStyle}
+            options={SUPPORTED_FONT_STYLES}
           />
         </div>
 
