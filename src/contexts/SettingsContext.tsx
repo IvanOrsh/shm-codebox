@@ -10,11 +10,13 @@ import {
 
 import type {
   ChoiceDefinition,
+  FontDefinition,
   LanguageDefinition,
   ThemeDefinition,
 } from "@/lib/types";
 import { SUPPORTED_LANGUAGES } from "@/lib/languages";
 import { SUPPORTED_PADDING_CHOICES, SUPPORTED_THEMES } from "@/lib/themes";
+import { SUPPORTED_FONTS } from "@/lib/fonts";
 
 interface SettingsContextProps {
   language: LanguageDefinition;
@@ -28,6 +30,9 @@ interface SettingsContextProps {
 
   padding: ChoiceDefinition;
   setPadding: (_: ChoiceDefinition) => void;
+
+  fontStyle: FontDefinition;
+  setFontStyle: (_: FontDefinition) => void;
 }
 
 const SettingsContext = createContext<SettingsContextProps>(
@@ -45,6 +50,9 @@ const SettingsProvider = ({ children }: PropsWithChildren) => {
   const [padding, setPadding] = useState<ChoiceDefinition>(
     SUPPORTED_PADDING_CHOICES[0]
   );
+  const [fontStyle, setFontStyle] = useState<FontDefinition>(
+    SUPPORTED_FONTS.at(0)!
+  );
 
   const value = useCallback(() => {
     return {
@@ -56,8 +64,10 @@ const SettingsProvider = ({ children }: PropsWithChildren) => {
       setLineNumbers,
       padding,
       setPadding,
+      fontStyle,
+      setFontStyle,
     };
-  }, [language, theme, lineNumbers, padding]);
+  }, [language, theme, lineNumbers, padding, fontStyle]);
 
   return (
     <SettingsContext.Provider value={value()}>
