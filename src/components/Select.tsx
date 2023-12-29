@@ -97,7 +97,7 @@ export default memo(function Select(props: SelectPropsUnion) {
       case "theme":
         return (
           <>
-            <ThemeBubble color={(initialValue as ThemeDefinition).class} />
+            <ThemeBubble color={(option as ThemeDefinition).class} />
             <span className="block truncate pr-9">
               {(option as ThemeDefinition).label}
             </span>
