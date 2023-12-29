@@ -5,15 +5,9 @@ export default function Home() {
   return (
     <main
       id="main"
-      className="h-full flex items-center justify-center flex-col gap-6"
+      className="h-screen flex flex-col items-center justify-center"
     >
-      <h1 className="text-4xl font-black ">
-        <span className="text-sky-500 font-extrabold">SHM</span>
-        <span className="font-light">codebox</span>
-      </h1>
-
       <Code placeholder="Add some code here..." />
-
       <Settings />
     </main>
   );
