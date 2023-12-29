@@ -1,6 +1,6 @@
 import type { FontDefinition } from "./types";
 
-export const SUPPORTED_FONTS: FontDefinition[] = [
+export const SUPPORTED_FONT_STYLES: FontDefinition[] = [
   {
     id: "firaCode",
     label: "Fira Code",

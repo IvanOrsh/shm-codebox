@@ -16,7 +16,7 @@ import type {
 } from "@/lib/types";
 import { SUPPORTED_LANGUAGES } from "@/lib/languages";
 import { SUPPORTED_PADDING_CHOICES, SUPPORTED_THEMES } from "@/lib/themes";
-import { SUPPORTED_FONTS } from "@/lib/fonts";
+import { SUPPORTED_FONT_STYLES } from "@/lib/fonts";
 
 interface SettingsContextProps {
   language: LanguageDefinition;
@@ -51,7 +51,7 @@ const SettingsProvider = ({ children }: PropsWithChildren) => {
     SUPPORTED_PADDING_CHOICES[0]
   );
   const [fontStyle, setFontStyle] = useState<FontDefinition>(
-    SUPPORTED_FONTS.at(0)!
+    SUPPORTED_FONT_STYLES.at(0)!
   );
 
   const value = useCallback(() => {
