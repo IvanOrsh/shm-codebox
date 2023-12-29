@@ -1,9 +1,9 @@
 export function debounce(func: Function, wait: number) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-  return (...arts: any[]) => {
+  return (...args: any[]) => {
     if (timeoutId !== null) clearTimeout(timeoutId);
 
-    timeoutId = setTimeout(() => func(...arts), wait);
+    timeoutId = setTimeout(() => func(...args), wait);
   };
 }
