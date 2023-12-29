@@ -70,7 +70,7 @@ export default memo(function Select(props: SelectPropsUnion) {
         return (
           <span
             className={clsx(
-              getClassName((initialValue as FontDefinition).value)
+              getClassName((initialValue as FontDefinition).variable)
             )}
           >
             {(initialValue as FontDefinition).label}
@@ -108,7 +108,7 @@ export default memo(function Select(props: SelectPropsUnion) {
         return (
           <span
             className={clsx(
-              getClassName((initialValue as FontDefinition).value)
+              getClassName((initialValue as FontDefinition).variable)
             )}
           >
             {(option as FontDefinition).label}

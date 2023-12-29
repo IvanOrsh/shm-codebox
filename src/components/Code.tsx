@@ -63,11 +63,11 @@ export default function Code(props: CodeProps) {
 
   const customFontStyle = EditorView.theme({
     ".cm-content *": {
-      fontFamily: fontStyle.value,
+      fontFamily: fontStyle.variable,
       fontVariantLigatures: "normal",
     },
     ".cm-gutters": {
-      fontFamily: fontStyle.value,
+      fontFamily: fontStyle.variable,
       fontVariantLigatures: "normal",
     },
   });

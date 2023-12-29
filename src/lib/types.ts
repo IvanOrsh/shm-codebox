@@ -22,5 +22,5 @@ export type LanguageDefinition = {
 export type FontDefinition = {
   id: string;
   label: string;
-  value: string;
+  variable: string;
 };
